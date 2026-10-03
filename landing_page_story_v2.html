@@ -23,8 +23,8 @@
       <nav class="nav-links">
         <a href="#problems" class="nav-link">The Problem</a>
         <a href="#how-it-works" class="nav-link">How It Works</a>
-        <a href="#example" class="nav-link">Real Example</a>
-        <a href="#why-it-works" class="nav-link">Why It Works</a>
+        <a href="deck_gallery.html" class="nav-link">10 Keynotes</a>
+        <a href="evidence_pipeline_video.html" class="nav-link">Video</a>
         <a href="#faq" class="nav-link">FAQ</a>
         <a href="#signup" class="btn-header-cta">Get Free Beta</a>
       </nav>
@@ -251,10 +251,15 @@
         Join the private beta. Stop submitting into job board black holes.
       </p>
 
-      <form class="final-input-group" onsubmit="event.preventDefault(); alert('Thank you! We will email your beta invite shortly.');">
-        <input type="email" class="email-input" placeholder="Enter your email address" required>
-        <button type="submit" class="btn-submit">Get Free Beta Access</button>
+      <form class="final-input-group" id="beta-signup-form" novalidate>
+        <div style="position: relative; flex: 1; display: flex;">
+          <input type="email" id="user-email-input" class="email-input" placeholder="Enter your Gmail address (name@gmail.com)" required autocomplete="email" inputmode="email">
+          <input type="text" id="user-website-trap" name="website" style="display: none !important; opacity: 0; position: absolute; left: -9999px;" tabindex="-1" autocomplete="off">
+        </div>
+        <button type="submit" id="btn-submit-signup" class="btn-submit">Get Free Beta Access</button>
       </form>
+
+      <div id="signup-feedback" style="display: none; width: 100%; max-width: 480px; margin-top: 14px; text-align: center; font-size: 13px; line-height: 1.5;"></div>
 
       <div style="margin-top: 24px; font-size: 13px; color: var(--text-dim); display: flex; gap: 20px;">
         <span>✓ No automated spam</span>
@@ -267,11 +272,143 @@
 
   </main>
 
+  <script>
+    (function() {
+      const form = document.getElementById('beta-signup-form');
+      const input = document.getElementById('user-email-input');
+      const trap = document.getElementById('user-website-trap');
+      const btn = document.getElementById('btn-submit-signup');
+      const feedback = document.getElementById('signup-feedback');
+
+      if (!form || !input || !btn || !feedback) return;
+
+      const GMAIL_PATTERN = /^[a-z0-9][a-z0-9._+\-]{0,63}@gmail\.com$/i;
+      const EMAIL_PATTERN = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+
+      // Dual endpoints: primary API and extension backend
+      const INTAKE_ENDPOINTS = [
+        'https://new-12w1.onrender.com/public/landing/access-requests',
+        'https://miro-outreach-api.onrender.com/public/landing/access-requests'
+      ];
+
+      // Smooth scroll and focus on email input when clicking header CTA
+      document.querySelectorAll('a[href="#signup"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function() {
+          setTimeout(function() {
+            if (input) input.focus();
+          }, 450);
+        });
+      });
+
+      async function postLead(emailAddress) {
+        const payload = JSON.stringify({
+          email: emailAddress,
+          source_location: 'final_cta',
+          website: trap ? trap.value.trim() : ''
+        });
+
+        let recorded = false;
+        let lastErr = null;
+
+        for (let i = 0; i < INTAKE_ENDPOINTS.length; i++) {
+          const endpoint = INTAKE_ENDPOINTS[i];
+          try {
+            const res = await fetch(endpoint, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: payload
+            });
+
+            if (res.ok) {
+              recorded = true;
+              break;
+            }
+
+            if (res.status === 422) {
+              const errBody = await res.json().catch(function() { return {}; });
+              const detailMsg = (errBody && errBody.detail && errBody.detail[0] && errBody.detail[0].msg) || '';
+              throw new Error(detailMsg || 'Enter a valid Gmail address ending in @gmail.com.');
+            }
+          } catch (err) {
+            lastErr = err;
+            if (err.message && err.message.includes('Gmail')) {
+              throw err;
+            }
+            console.warn('Lead intake endpoint failed, trying fallback:', endpoint, err);
+          }
+        }
+
+        if (!recorded && lastErr) {
+          throw lastErr;
+        }
+        return true;
+      }
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const raw = input.value.trim();
+        const normalized = raw.toLowerCase();
+
+        if (!EMAIL_PATTERN.test(normalized)) {
+          showError('Please enter a valid email address.');
+          input.focus();
+          return;
+        }
+
+        if (!GMAIL_PATTERN.test(normalized)) {
+          showError('Miro recruiter outreach runs via Gmail. Please use a valid @gmail.com address.');
+          input.focus();
+          return;
+        }
+
+        feedback.style.display = 'none';
+        btn.disabled = true;
+        const originalText = btn.textContent;
+        btn.textContent = 'Reserving spot…';
+
+        try {
+          await postLead(normalized);
+          showSuccess(normalized);
+        } catch (err) {
+          showError(err.message || 'Could not save your request. Please try again in a moment.');
+        } finally {
+          btn.disabled = false;
+          btn.textContent = originalText;
+        }
+      });
+
+      function showError(msg) {
+        feedback.style.display = 'block';
+        feedback.style.color = '#ff8585';
+        feedback.style.background = 'rgba(255, 133, 133, 0.08)';
+        feedback.style.border = '1px solid rgba(255, 133, 133, 0.25)';
+        feedback.style.borderRadius = '8px';
+        feedback.style.padding = '10px 14px';
+        feedback.textContent = msg;
+      }
+
+      function showSuccess(savedEmail) {
+        form.style.display = 'none';
+        feedback.style.display = 'block';
+        feedback.style.color = '#52d6c0';
+        feedback.style.background = 'rgba(82, 214, 192, 0.08)';
+        feedback.style.border = '1px solid rgba(82, 214, 192, 0.3)';
+        feedback.style.borderRadius = '12px';
+        feedback.style.padding = '18px 20px';
+        feedback.innerHTML = '<div style="font-size:22px; margin-bottom:4px;">✓ Spot Reserved!</div><div style="color:#f5f8f7; font-weight:600; margin-bottom:4px;">' + savedEmail + '</div><div style="color:#8da0a7; font-size:12px;">You are in the queue for the MiroConnects private beta. We will email your onboarding guide and extension access shortly.</div>';
+      }
+    })();
+  </script>
+
   <!-- Clean Footer -->
   <footer class="site-footer">
     <div class="landing-shell footer-inner">
       <span>© 2026 MiroConnects · Evidence-Backed Career OS</span>
-      <span>Built for modern professionals</span>
+      <div style="display: flex; gap: 16px;">
+        <a href="deck_gallery.html" style="color: inherit; text-decoration: none; transition: color 0.2s;">10 Keynote Decks</a>
+        <span>·</span>
+        <a href="evidence_pipeline_video.html" style="color: inherit; text-decoration: none; transition: color 0.2s;">Interactive Video</a>
+      </div>
     </div>
   </footer>
 
