@@ -252,12 +252,15 @@
       </p>
 
       <form class="final-input-group" id="beta-signup-form" novalidate>
-        <div style="position: relative; flex: 1; display: flex;">
-          <input type="email" id="user-email-input" class="email-input" placeholder="Enter your Gmail address (name@gmail.com)" required autocomplete="email" inputmode="email">
-          <input type="text" id="user-website-trap" name="website" style="display: none !important; opacity: 0; position: absolute; left: -9999px;" tabindex="-1" autocomplete="off">
+        <div style="position: relative; flex: 1; display: flex; flex-direction: column;">
+          <input type="email" id="user-email-input" class="email-input" placeholder="Enter your Gmail (e.g. name@gmail.com)" required autocomplete="email" inputmode="email">
         </div>
         <button type="submit" id="btn-submit-signup" class="btn-submit">Get Free Beta Access</button>
       </form>
+
+      <div style="margin-top: 8px; font-size: 12px; color: var(--text-dim); text-align: center;">
+        * Uses Gmail / Google OAuth for verified 1-click recruiter outreach
+      </div>
 
       <div id="signup-feedback" style="display: none; width: 100%; max-width: 480px; margin-top: 14px; text-align: center; font-size: 13px; line-height: 1.5;"></div>
 
@@ -276,7 +279,6 @@
     (function() {
       const form = document.getElementById('beta-signup-form');
       const input = document.getElementById('user-email-input');
-      const trap = document.getElementById('user-website-trap');
       const btn = document.getElementById('btn-submit-signup');
       const feedback = document.getElementById('signup-feedback');
 
@@ -285,7 +287,7 @@
       const GMAIL_PATTERN = /^[a-z0-9][a-z0-9._+\-]{0,63}@gmail\.com$/i;
       const EMAIL_PATTERN = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
-      // Dual endpoints: primary API and extension backend
+      // Available intake endpoints in priority order
       const INTAKE_ENDPOINTS = [
         'https://new-12w1.onrender.com/public/landing/access-requests',
         'https://miro-outreach-api.onrender.com/public/landing/access-requests'
@@ -304,7 +306,7 @@
         const payload = JSON.stringify({
           email: emailAddress,
           source_location: 'final_cta',
-          website: trap ? trap.value.trim() : ''
+          website: ''
         });
 
         let recorded = false;
@@ -313,6 +315,7 @@
         for (let i = 0; i < INTAKE_ENDPOINTS.length; i++) {
           const endpoint = INTAKE_ENDPOINTS[i];
           try {
+            console.log('[MiroConnects] Submitting lead to:', endpoint);
             const res = await fetch(endpoint, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -320,6 +323,8 @@
             });
 
             if (res.ok) {
+              const resData = await res.json().catch(function() { return {}; });
+              console.log('[MiroConnects] Lead captured successfully:', resData);
               recorded = true;
               break;
             }
@@ -334,7 +339,7 @@
             if (err.message && err.message.includes('Gmail')) {
               throw err;
             }
-            console.warn('Lead intake endpoint failed, trying fallback:', endpoint, err);
+            console.warn('[MiroConnects] Lead intake endpoint error, trying fallback:', endpoint, err);
           }
         }
 
