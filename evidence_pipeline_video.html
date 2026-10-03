@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miro — Evidence-Backed Pipeline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="evidence_video/video_styles.css">
+</head>
+<body>
+
+  <!-- Minimal 16:9 Cinema Stage (1280x720) -->
+  <div id="cinema-stage">
+    
+    <!-- Subtle Monochrome Particle Grid -->
+    <canvas id="neural-canvas"></canvas>
+
+    <!-- Ambient Subtle Shadows -->
+    <div class="ambient-orb" id="orb-left"></div>
+    <div class="ambient-orb" id="orb-right"></div>
+
+    <!-- Top Minimal Header -->
+    <header class="hud-header">
+      <div class="brand-cluster">
+        <div class="brand-icon">M</div>
+        <div class="brand-name">Miro</div>
+        <div class="research-badge">Evidence-Backed System</div>
+      </div>
+
+      <div class="top-controls">
+        <button class="hud-btn active" id="btn-sfx-toggle">SFX: On</button>
+        <button class="hud-btn active" id="btn-narrate-toggle">Voice: On</button>
+        <button class="hud-btn" id="btn-speed">1x</button>
+        <button class="hud-btn" id="btn-fullscreen">Fullscreen</button>
+      </div>
+    </header>
+
+    <!-- ================= SLIDE 1: THE VOLUME FALLACY ================= -->
+    <section class="scene-layer active" id="act1">
+      <div class="slide-num">01 / The Volume Fallacy</div>
+      <h1 class="slide-title">450 applications.<br><span class="dim">Zero human replies.</span></h1>
+      <p class="slide-statement">Automating volume into applicant tracking systems is mathematically broken.</p>
+      
+      <div class="s1-numbers-row">
+        <div class="s1-number-col">
+          <div class="big-mono-num" id="num-450">450</div>
+          <div class="num-label">Applications submitted</div>
+        </div>
+        <div class="s1-number-col">
+          <div class="big-mono-num" id="num-0">0%</div>
+          <div class="num-label">Evaluated by engineering managers</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 2: THE 1-USER THESIS ================= -->
+    <section class="scene-layer" id="act2">
+      <div class="slide-num">02 / First Principle</div>
+      <h2 class="slide-title">One candidate.<br>One suitable role.<br><span class="dim">One real reason to talk.</span></h2>
+      <p class="slide-statement">The original handwritten thesis: convert one real user to one suitable job.</p>
+      
+      <div class="s2-stack">
+        <div class="s2-line">Not 500 spam clicks</div>
+        <div class="s2-line">Not inflated AI resumes</div>
+        <div class="s2-line">A verified decision chain</div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 3: THE OPERATING LAW ================= -->
+    <section class="scene-layer" id="act3">
+      <div class="slide-num">03 / The Law</div>
+      <h2 class="slide-title">Multiplicative progress.</h2>
+      <p class="slide-statement">If any single factor is zero, the outcome is zero.</p>
+      
+      <div class="equation-bar">
+        <div class="eq-term"><span>O</span><span class="eq-sub">Suitable Job</span></div>
+        <span class="eq-op">×</span>
+        <div class="eq-term"><span>E</span><span class="eq-sub">Evidence</span></div>
+        <span class="eq-op">×</span>
+        <div class="eq-term"><span>H</span><span class="eq-sub">Right Person</span></div>
+        <span class="eq-op">×</span>
+        <div class="eq-term"><span>T</span><span class="eq-sub">Timing</span></div>
+        <span class="eq-op">×</span>
+        <div class="eq-term"><span>C</span><span class="eq-sub">Pitch</span></div>
+        <span class="eq-op">=</span>
+        <div class="eq-term"><span style="color:#ffffff;">OUTCOME</span><span class="eq-sub">Hire</span></div>
+      </div>
+
+      <div class="law-subtext">Copywriting cannot compensate for a zero.</div>
+    </section>
+
+    <!-- ================= SLIDE 4: EVIDENCE LEDGER ================= -->
+    <section class="scene-layer" id="act4">
+      <div class="slide-num">04 / Proof vs. Keywords</div>
+      <h2 class="slide-title">Proof beats keywords.</h2>
+      <p class="slide-statement">Empirical economics shows that communicating real ability increases hiring without inflation.</p>
+      
+      <div class="tri-cards">
+        <div class="minimal-card">
+          <div class="card-head">Direct Evidence</div>
+          <div class="card-body">Production code, architecture decisions, and measurable outcomes.</div>
+        </div>
+        <div class="minimal-card">
+          <div class="card-head">Zero Inflation</div>
+          <div class="card-body">Never upgrading "assisted" to "led". Protecting credibility at interview stage.</div>
+        </div>
+        <div class="minimal-card">
+          <div class="card-head">Inspectable Proof</div>
+          <div class="card-body">Bounded benchmarks and code repositories managers can verify.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 5: THE 3 LANES ================= -->
+    <section class="scene-layer" id="act5">
+      <div class="slide-num">05 / Contact Intelligence</div>
+      <h2 class="slide-title">Never email the CTO.</h2>
+      <p class="slide-statement">Seniority is a misleading proxy. Reach the person who owns the next action.</p>
+      
+      <div class="lanes-horizontal">
+        <div class="lane-box">
+          <div class="lane-number">Lane 1</div>
+          <div class="lane-target">Talent Partner</div>
+          <div class="lane-role">Owns requisition screening and candidate routing.</div>
+        </div>
+        <div class="lane-box">
+          <div class="lane-number">Lane 2</div>
+          <div class="lane-target">Squad Tech Lead</div>
+          <div class="lane-role">Faces the technical bottleneck and evaluates proof.</div>
+        </div>
+        <div class="lane-box">
+          <div class="lane-number">Lane 3</div>
+          <div class="lane-target">Alumni Referrer</div>
+          <div class="lane-role">Provides internal context and verified portal referral.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SLIDE 6: THE 50-COMPANY TEST ================= -->
+    <section class="scene-layer" id="act6">
+      <div class="slide-num">06 / Quality Filter</div>
+      <h2 class="slide-title">The 50-Company Test.</h2>
+      
+      <div class="quote-card">
+        <div class="quote-text">"If an email can be sent unchanged to fifty companies, it is spam."</div>
+        <div class="quote-sub">
+          <span>Zero generic flattery</span>
+          <span>·</span>
+          <span>Every claim grounded in evidence</span>
+        </div>
+      </div>
+
+      <p class="slide-statement">One relevant opportunity. One verified person. One clear technical question.</p>
+    </section>
+
+    <!-- ================= SLIDE 7: NORTH STAR FINALE ================= -->
+    <section class="scene-layer" id="act7">
+      <div class="slide-num">07 / Miro</div>
+      <div class="s7-minimal-cluster">
+        <div class="minimal-logo">M</div>
+        <h1 class="slide-title" style="margin-bottom: 8px;">
+          Right Job. Right Evidence.<br>
+          <span class="dim">Right Person. Right Time.</span>
+        </h1>
+        <p class="slide-statement" style="margin-bottom: 16px;">
+          An evidence-backed decision system for career progression.
+        </p>
+
+        <button class="minimal-btn" onclick="window.open('https://github.com/Milan-Chandrakar/new', '_blank')">
+          Enter Private Beta →
+        </button>
+
+        <div class="s7-footnote">
+          <span>7 Unified Engines</span>
+          <span>·</span>
+          <span>NBER Research Foundations</span>
+          <span>·</span>
+          <span>Closed-Loop Telemetry</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Minimal Scrubber Dock -->
+    <div class="timeline-dock">
+      <div class="scrubber-track" id="scrubber-track">
+        <div class="scrubber-fill" id="scrubber-fill">
+          <div class="scrubber-handle"></div>
+        </div>
+      </div>
+
+      <div class="dock-controls">
+        <div class="transport-buttons">
+          <button class="t-btn" id="btn-play-pause">▶ Play</button>
+          <button class="t-btn" id="btn-replay">↺ Replay</button>
+          <div class="timer-readout" id="timer-readout">00:00 / 00:38</div>
+        </div>
+
+        <div class="chapter-pills">
+          <button class="chap-pill active">01 Fallacy</button>
+          <button class="chap-pill">02 Principle</button>
+          <button class="chap-pill">03 Law</button>
+          <button class="chap-pill">04 Evidence</button>
+          <button class="chap-pill">05 Lanes</button>
+          <button class="chap-pill">06 Filter</button>
+          <button class="chap-pill">07 Miro</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /cinema-stage -->
+
+  <!-- Modular Scripts -->
+  <script src="evidence_video/video_canvas.js"></script>
+  <script src="evidence_video/video_audio.js"></script>
+  <script src="evidence_video/video_scenes.js"></script>
+  <script src="evidence_video/video_engine.js"></script>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const neuralCanvas = new window.NeuralCanvas('neural-canvas');
+      const audioEngine = new window.VideoAudioEngine();
+      const sceneDirector = new window.VideoSceneDirector(audioEngine);
+      const transportEngine = new window.VideoTransportEngine(sceneDirector, audioEngine, neuralCanvas);
+
+      transportEngine.play();
+
+      window.addEventListener('click', () => {
+        audioEngine.initAudioContext();
+      }, { once: true });
+    });
+  </script>
+</body>
+</html>
