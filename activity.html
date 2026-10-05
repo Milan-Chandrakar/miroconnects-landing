@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self' https://api.miconnects.in; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="stylesheet" href="tracker/live.css?v=20261005brand1">
+  <title>MiConnects | My activity</title>
+  <link rel="icon" href="tracker/assets/logo.png">
+  <link rel="stylesheet" href="tracker/styles.css?v=20261005brand1">
+  <link rel="stylesheet" href="tracker/views.css?v=20261005brand1">
+  <script type="module" src="activity.js?v=20261005brand1"></script>
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to tracker</a>
+  <div class="review-bar">
+    <span class="review-label">MY JOBS & ACTIVITY</span>
+    <nav class="concepts" aria-label="Tracker view">
+      <a href="?view=board" data-concept="board"><span>01</span> Pipeline</a>
+      <a href="?view=planner" data-concept="planner"><span>02</span> Daybook</a>
+      <a href="?view=ledger" data-concept="ledger"><span>03</span> Ledger</a>
+    </nav>
+    <div class="button-row session-controls"><button class="text-btn" data-action="outreach" disabled>Outreach</button><button class="text-btn" data-action="refresh" disabled>Refresh</button><button class="text-btn" data-action="logout" hidden>Sign out</button></div>
+  </div>
+  <p id="sync-status" class="sync-status" role="status">Opening your activity...</p>
+  <div id="app"><p class="loading">Loading your activity...</p></div>
+  <dialog id="detail-dialog" class="drawer" aria-labelledby="detail-title"></dialog>
+  <dialog id="feedback-dialog" aria-labelledby="feedback-title"></dialog>
+  <dialog id="small-dialog" aria-labelledby="small-title"></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <noscript>Your tracker require JavaScript.</noscript>
+</body>
+</html>

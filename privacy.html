@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MiConnects | Privacy policy</title><link rel="icon" href="assets/miconnects-logo.png"><link rel="stylesheet" href="landing_story_v2.css"><style>main{max-width:850px;margin:50px auto;padding:24px}section{margin:32px 0}p,li{line-height:1.7;color:#cbd5e1}a{color:#fff}.brand{display:flex;gap:12px;align-items:center}.brand img{width:48px;height:48px;border-radius:12px}</style></head><body><main><a class="brand" href="/"><img src="assets/miconnects-logo.png" alt="MiConnects">MiConnects</a><h1>Privacy policy</h1><p>How MiConnects uses and protects your information.</p>      <section>
+        <h2>Purpose</h2>
+        <p>MiConnects helps approved testers turn the job posting they are viewing into a reviewed, personalized recruiter outreach email sent through their Gmail account only after explicit confirmation.</p>
+      </section>
+      <section>
+        <h2>Data we handle</h2>
+        <ul>
+          <li><strong>Identity and authentication:</strong> Google ID, email, display name, picture, OAuth authorization data, MiConnects session, beta access, and credits.</li>
+          <li><strong>Current-page job content:</strong> URL, title, company, description, location, experience, salary, skills, metadata, and scan time.</li>
+          <li><strong>Candidate data:</strong> name, email, phone, role, experience, skills, notice period, summary, resume filename/content, and selected evidence.</li>
+          <li><strong>Recruiter and company data:</strong> domain, company context, recruiter identity/title/public profile, and business email status.</li>
+          <li><strong>Communications:</strong> generated drafts, recipient, subject, body, optional resume attachment, send result, and optional credit-request note.</li>
+          <li><strong>Operations:</strong> authenticated server-request outcomes, coarse timestamps, credit state, provider outcome categories, errors, and standard service/network logs. The Store client contains no direct analytics SDK and sends no separate UI-step telemetry.</li>
+        </ul>
+        <p>We do not intentionally read passwords, cookies, complete browser history, banking data, health data, or content unrelated to detecting a job posting on the current page.</p>
+      </section>
+      <section>
+        <h2>Connected Gmail and LinkedIn activity</h2><p>With your authorized connection, MiConnects reads relevant Gmail delivery reports and replies to keep job activity current. LinkedIn connection and message activity use Unipile when connected. Messages require your explicit approval.</p></section><section><h2>How data is used</h2>
+        <p>Data is used only to admit testers, maintain sessions, scan the visible job page, resolve companies, find and rank contacts, analyze a user-selected resume, create editable drafts, deliver a user-confirmed Gmail message, enforce credits, prevent abuse, recover workflows, provide support, and measure beta reliability.</p>
+        <p>We do not sell user data or use it for personalized advertising, creditworthiness, or lending.</p>
+      </section>
+      <section>
+        <h2>Current-page access</h2>
+        <p>The packaged parser runs automatically on supported LinkedIn and Naukri job pages. On other HTTP or HTTPS career pages, Chrome grants temporary current-tab access only after the tester invokes MiConnects. Current-page job content is used only for the visible scanning and outreach workflow. Page scanning remains dormant until the tester accepts the prominent first-use disclosure.</p>
+      </section>
+      <section>
+        <h2>Local Chrome storage</h2>
+        <p>The extension persistently stores its session token, Google profile, credits, settings, candidate profile, full uploaded resume, parsed evidence, jobs, recruiter cache, generated drafts, and pipeline state in Chrome. Logout clears the session identity and credit display but intentionally retains resume, profile, job, recruiter, draft, and workflow data. Clearing extension storage or uninstalling deletes data from that Chrome profile.</p>
+      </section>
+      <section>
+        <h2>Server storage and retention</h2>
+        <p>The account database stores approved tester identity, Google ID, profile fields, beta state, credits/events, and an encrypted Gmail refresh token. Resume files, job pages, and email bodies are processed for the requested feature and are not intentionally stored in the account database. Operational analytics contain the event metadata described above.</p>
+        <ul>
+          <li>Local data remains until the tester clears it or uninstalls.</li>
+          <li>Account, credit, and encrypted Gmail authorization data remains until verified deletion, access revocation, or beta shutdown.</li>
+          <li>Analytics and service logs remain until verified deletion or service-retention cleanup, subject to security and backup schedules.</li>
+        </ul>
+        <p>Verified deletion requests are completed within 30 days except for information retained temporarily for security, fraud prevention, legal obligations, or provider backups.</p>
+      </section>
+      <section>
+        <h2>Service providers and sharing</h2>
+        <ul>
+          <li><strong>Google Identity and Gmail:</strong> sign-in, OAuth authorization, and user-confirmed messages/attachments.</li>
+          <li><strong>Render:</strong> authenticated API requests and operational logs.</li>
+          <li><strong>Neon:</strong> account/credit records and encrypted Gmail refresh tokens.</li>
+          <li><strong>Apollo, Apify, and Logo.dev:</strong> employer, role/location, and public recruiter/company lookup data.</li>
+          <li><strong>Google Gemini, OpenAI, and DeepSeek:</strong> resume/job context or candidate, job, company, recruiter, and evidence data when used for analysis or drafting.</li>
+          <li><strong>PostHog:</strong> bounded server-side beta account/event metadata and basic pageview metadata on these public information pages.</li>
+          <li><strong>Beta administrator:</strong> identity, credit state, and note only after an explicit credit request.</li>
+        </ul>
+        <p>Sharing is limited to providing, securing, or measuring the disclosed extension purpose, complying with law, or investigating abuse.</p>
+      </section>
+      <section>
+        <h2>Security and user choices</h2>
+        <p>Extension-to-server data uses HTTPS, Gmail refresh tokens are encrypted before database storage, and provider credentials remain server-side. Users can edit drafts, omit a resume attachment, cancel before send, log out, clear local data, uninstall, revoke Google access, or request server deletion.</p>
+      </section>
+      <section>
+        <h2>Deletion and contact</h2>
+        <p>Email <a href="mailto:hello@miconnects.in">hello@miconnects.in</a> from the affected Google email to request correction, revocation, or deletion. Step-by-step instructions are on the <a href="/support">support page</a>.</p>
+      </section>
+      <section>
+        <h2>Chrome Web Store Limited Use</h2>
+        <p>The use of information received from Google APIs will adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
+      </section>
+      <section>
+        <h2>Changes and children</h2>
+        <p>This private job-search beta is not directed to children under 13. Material data-practice changes will be published here and prominently disclosed before updated collection begins.</p>
+      </section>
+<p><a href="/">Home</a> · <a href="/privacy">Privacy</a> · <a href="/support">Support</a> · <a href="mailto:hello@miconnects.in">hello@miconnects.in</a></p></main></body></html>

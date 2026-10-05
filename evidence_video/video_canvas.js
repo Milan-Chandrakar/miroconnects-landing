@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * MIRO MINIMALIST CANVAS ENGINE (video_canvas.js)
+ * MiConnects MINIMALIST CANVAS ENGINE (video_canvas.js)
  * Low-contrast subtle monochrome particle field (Linear/Keynote style)
  * Strictly <= 500 Lines (Conforms to Repository Rule)
  * ============================================================================

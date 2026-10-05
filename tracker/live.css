@@ -1,0 +1,31 @@
+.sync-status{margin:0;padding:8px 22px;background:var(--surface);border-bottom:1px solid var(--line);color:var(--muted);font-size:11px}
+.sync-status.error{color:var(--text);font-weight:600}
+.session-controls{margin-left:auto;flex-wrap:wrap;gap:14px}
+.review-bar{position:sticky;top:0;z-index:5;flex-wrap:wrap}
+.concepts a{min-height:40px;display:flex;align-items:center;justify-content:center}
+.concepts a.active{box-shadow:inset 0 0 0 1px currentColor}
+.connection-panel{padding:18px;border:1px solid var(--line);border-radius:12px;margin:20px 0}
+.outreach-list .channel{margin-top:20px}
+.auth-message{max-width:640px;margin:60px auto;padding:28px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.auth-message img{width:64px;height:64px;border-radius:14px}
+.connection-panel .button-row,.channel-record .button-row{flex-wrap:wrap;margin-top:14px}
+.saved-limit{font-size:11px;color:var(--muted)}
+.job-highlights{display:grid;gap:12px;margin:12px 0;text-align:left}
+.outreach-highlight{padding-top:10px;border-top:1px solid var(--line);min-width:0}
+.highlight-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.highlight-heading strong{font-size:12px;overflow-wrap:anywhere}
+.highlight-heading .badge{font-size:9px;white-space:normal}
+.outreach-highlight p{font-size:11px;line-height:1.5;margin:5px 0;color:var(--text)}
+.outreach-highlight .highlight-date{color:var(--muted);font-size:10px}
+.outreach-highlight .highlight-visits{font-size:10px}
+.highlight-actions,.highlight-actions .button-row{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 0;align-items:center}
+.highlight-actions .btn{font-size:10px;padding:6px 8px;min-height:30px;line-height:1.3;white-space:normal}
+.highlight-actions .icon{width:12px;height:12px}
+.daybook-highlights{margin-top:30px;border-top:1px solid var(--line);padding-top:24px}
+.daybook-highlight-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:16px}
+.daybook-job{padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--surface);min-width:0}
+.daybook-job .section-heading{margin:0 0 8px}
+.ledger-main td.outreach-cell{min-width:240px;max-width:320px;vertical-align:top;white-space:normal}
+.ledger-main .job-highlights{margin:0}
+.ledger-main .outreach-highlight:first-child{border-top:0;padding-top:0}
+@media(max-width:700px){.review-bar{gap:8px;padding:10px 12px}.review-label{width:100%;justify-content:center}.concepts{width:100%;margin:0;justify-content:stretch}.concepts a{flex:1}.session-controls{margin:auto}.sync-status{padding:8px 12px}.auth-message{margin:28px 12px}.header-right{flex-wrap:wrap}.product-header{flex-wrap:wrap;gap:10px}.quota{white-space:normal}}

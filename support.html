@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MiConnects | Support and data deletion</title><link rel="icon" href="assets/miconnects-logo.png"><link rel="stylesheet" href="landing_story_v2.css"><style>main{max-width:850px;margin:50px auto;padding:24px}section{margin:32px 0}p,li{line-height:1.7;color:#cbd5e1}a{color:#fff}.brand{display:flex;gap:12px;align-items:center}.brand img{width:48px;height:48px;border-radius:12px}</style></head><body><main><a class="brand" href="/"><img src="assets/miconnects-logo.png" alt="MiConnects">MiConnects</a><h1>Support and data deletion</h1><p>Contact hello@miconnects.in for product help or account-data requests.</p>      <section>
+        <h2>Contact</h2>
+        <p>Email <a href="mailto:hello@miconnects.in">hello@miconnects.in</a>. Include the extension and Chrome versions, job-site hostname, visible error, and workflow step. Do not send passwords, MiConnects session tokens, Google authorization codes, raw API responses, or a resume unless support explicitly requests it and you consent.</p>
+      </section>
+      <section>
+        <h2>Common recovery</h2>
+        <ol>
+          <li>Confirm that the Google email is an approved beta tester.</li>
+          <li>Reopen the job page and MiConnects side panel.</li>
+          <li>Use New Job to request a fresh parse.</li>
+          <li>If the backend is waking, wait briefly and retry the same non-send step.</li>
+          <li>Never repeat Send unless the UI clearly reports no provider-accepted send.</li>
+        </ol>
+      </section>
+      <section>
+        <h2>Logout versus deletion</h2>
+        <p>Logout removes the MiConnects session and account display but intentionally retains the saved resume, profile, jobs, recruiter cache, drafts, consent record, and workflow state. It does not delete server data or revoke Google authorization.</p>
+      </section>
+      <section>
+        <h2>Delete local data</h2>
+        <ol>
+          <li>Open <code>chrome://extensions</code> and choose MiConnects.</li>
+          <li>Clear its extension data if Chrome exposes that control, then remove the extension.</li>
+          <li>Repeat for any other Chrome profile or device where it was installed.</li>
+        </ol>
+        <p>Uninstalling stops page scanning and removes local extension storage from that Chrome profile.</p>
+      </section>
+      <section>
+        <h2>Delete server data</h2>
+        <p>Email from the Google account used for the beta with subject <strong>MiConnects data deletion request</strong>. Request access revocation, Gmail authorization removal, account/credit/analytics deletion, or all three. We verify ownership and complete data under our control within 30 days, subject to security, legal, fraud-prevention, and provider-backup exceptions.</p>
+        <p>Separately revoke MiConnects from the Google Account third-party access page if you want Google to invalidate authorization immediately.</p>
+      </section>
+      <section>
+        <h2>Tester-group removal</h2>
+        <p>Removing a tester from the private Google Group stops Store availability but does not itself delete local data, the backend account, or Google OAuth authorization. Use the deletion steps above during offboarding.</p>
+      </section>
+<p><a href="/">Home</a> · <a href="/privacy">Privacy</a> · <a href="/support">Support</a> · <a href="mailto:hello@miconnects.in">hello@miconnects.in</a></p></main></body></html>

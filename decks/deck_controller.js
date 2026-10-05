@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * MIRO KEYNOTE DECK CONTROLLER (deck_controller.js)
+ * MiConnects KEYNOTE DECK CONTROLLER (deck_controller.js)
  * High-performance keyboard & touch navigation for 16:9 presentation slides
  * Strictly <= 500 Lines (Conforms to Repository Rule)
  * ============================================================================

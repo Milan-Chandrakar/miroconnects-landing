@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * MIRO DUAL AUDIO & NARRATION ENGINE (video_audio.js)
+ * MiConnects DUAL AUDIO & NARRATION ENGINE (video_audio.js)
  * 1. Web Audio API Synthesizer (Zero asset dependencies, instant 0ms latency)
  * 2. Web Speech API Voiceover Narrator (Live voiceover synchronized with scenes)
  * Strictly <= 500 Lines (Conforms to Repository Rule)

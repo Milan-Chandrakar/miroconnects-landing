@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * MIRO VIDEO TRANSPORT ENGINE (video_engine.js)
+ * MiConnects VIDEO TRANSPORT ENGINE (video_engine.js)
  * Master Timeline Controller, Transport Controls, Scrubbing & Keyboard Shortcuts
  * Strictly <= 500 Lines (Conforms to Repository Rule)
  * ============================================================================

@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * MIRO VIDEO SCENES — MINIMALIST TEXT SLIDE ORCHESTRATION (video_scenes.js)
+ * MiConnects VIDEO SCENES — MINIMALIST TEXT SLIDE ORCHESTRATION (video_scenes.js)
  * Clean, Punchy, High-Impact Statements & Subdued Ambient Lighting
  * Strictly <= 500 Lines (Conforms to Repository Rule)
  * ============================================================================
@@ -72,7 +72,7 @@
       orbLeft: 'rgba(255, 255, 255, 0.06)',
       orbRight: 'rgba(255, 255, 255, 0.04)',
       sfx: 'fanfare',
-      narration: 'Right Job. Right Evidence. Right Person. Right Time. Miro.'
+      narration: 'Right Job. Right Evidence. Right Person. Right Time. MiConnects.'
     }
   ];
 
